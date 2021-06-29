@@ -15,7 +15,7 @@ post '/' do
   if to_encode
     qr_enc = Base64.encode64(RQRCode::QRCode.new(to_encode).as_png(size: 480).to_blob)
   end
-  erb :qrcodegen, :locals => { :qr_enc => qr_enc}
+  erb :qrcodegen, :locals => { :qr_enc => qr_enc, :to_encode => to_encode}
 end
 
 # get '/*' do
